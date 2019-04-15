@@ -29,6 +29,12 @@
  - Design Pattern: <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel" target="_blank">MVVM</a>
  - Logo Created Using: <a href="https://www.sketch.com/" target="_blank">Sketch</a><br/>
 
+### Dependencies
+
+I tried not to use Cocoapods for this exercise to save time when trying to run the application. Below is a list of all of the frameworks i used:
+
+ - <a href="https://github.com/drmohundro/SWXMLHash" target="_blank">SWXMLHash</a><br/>
+
 ### How to Use the app
 
 In order to test the app, project files need to be opened in Xcode 10.2<br/>
