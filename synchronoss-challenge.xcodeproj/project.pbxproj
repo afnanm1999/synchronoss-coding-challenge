@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF51A77B226431BE007F3DAE /* stationDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51A779226431BE007F3DAE /* stationDetailsTVCell.swift */; };
+		CF51A77C226431BE007F3DAE /* stationDetailsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF51A77A226431BE007F3DAE /* stationDetailsTVCell.xib */; };
+		CF51A77E22643357007F3DAE /* StationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF51A77D22643357007F3DAE /* StationDetail.swift */; };
 		CF9ECCD32263CF4700114FE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9ECCD22263CF4700114FE7 /* AppDelegate.swift */; };
 		CF9ECCD52263CF4700114FE7 /* StationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9ECCD42263CF4700114FE7 /* StationsVC.swift */; };
 		CF9ECCD82263CF4700114FE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9ECCD62263CF4700114FE7 /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF51A779226431BE007F3DAE /* stationDetailsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stationDetailsTVCell.swift; sourceTree = "<group>"; };
+		CF51A77A226431BE007F3DAE /* stationDetailsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = stationDetailsTVCell.xib; sourceTree = "<group>"; };
+		CF51A77D22643357007F3DAE /* StationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDetail.swift; sourceTree = "<group>"; };
 		CF9ECCCF2263CF4700114FE7 /* synchronoss-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "synchronoss-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9ECCD22263CF4700114FE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF9ECCD42263CF4700114FE7 /* StationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsVC.swift; sourceTree = "<group>"; };
@@ -59,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF51A7782264319B007F3DAE /* Stations Details Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CF51A779226431BE007F3DAE /* stationDetailsTVCell.swift */,
+				CF51A77A226431BE007F3DAE /* stationDetailsTVCell.xib */,
+			);
+			path = "Stations Details Cell";
+			sourceTree = "<group>";
+		};
 		CF9ECCC62263CF4700114FE7 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				CF9ECCF22263ECEB00114FE7 /* Station.swift */,
+				CF51A77D22643357007F3DAE /* StationDetail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				CF9ECD022263FB0B00114FE7 /* Stations Cell */,
+				CF51A7782264319B007F3DAE /* Stations Details Cell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -259,6 +276,7 @@
 				CF9ECD0B22642D0600114FE7 /* README.md in Resources */,
 				CF9ECD012263FB0400114FE7 /* stationsTVCell.xib in Resources */,
 				CF9ECCD82263CF4700114FE7 /* Main.storyboard in Resources */,
+				CF51A77C226431BE007F3DAE /* stationDetailsTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +298,9 @@
 				CF9ECD042264094A00114FE7 /* StationsDetailsVC.swift in Sources */,
 				CF9ECCF02263E05300114FE7 /* BackendAPI.swift in Sources */,
 				CF9ECCF62263ED8B00114FE7 /* XMLIndexer+XMLIndexerDeserializable.swift in Sources */,
+				CF51A77E22643357007F3DAE /* StationDetail.swift in Sources */,
 				CF9ECCD32263CF4700114FE7 /* AppDelegate.swift in Sources */,
+				CF51A77B226431BE007F3DAE /* stationDetailsTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

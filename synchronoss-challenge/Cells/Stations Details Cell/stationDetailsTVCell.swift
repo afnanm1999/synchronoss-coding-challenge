@@ -1,5 +1,5 @@
 //
-//  stationsTVCell.swift
+//  stationDetailsTVCell.swift
 //  synchronoss-challenge
 //
 //  Created by Afnan Mirza on 4/14/19.
@@ -9,11 +9,19 @@
 import UIKit
 import MapKit
 
-class stationsTVCell: UITableViewCell {
+class stationDetailsTVCell: UITableViewCell {
     
     // MARK: - Properties
     @IBOutlet var cardView: UIView!
-    @IBOutlet var stationNameLbl: UILabel!
+    
+    @IBOutlet var trainTypeLbl: UILabel!
+    @IBOutlet var originLbl: UILabel!
+    @IBOutlet var destinationLbl: UILabel!
+    @IBOutlet var scheduledDepartureLbl: UILabel!
+    @IBOutlet var scheduledArrivalLbl: UILabel!
+    @IBOutlet var expectedDepartureLbl: UILabel!
+    @IBOutlet var directionLbl: UILabel!
+    @IBOutlet var statusLbl: UILabel!
     
     @IBOutlet var mapView: MKMapView!
     
@@ -38,8 +46,15 @@ class stationsTVCell: UITableViewCell {
         self.mapView.layer.cornerRadius = 10
     }
     
-    func configureCell(station: Station) {
-        self.stationNameLbl.text = station.stationDesc
+    func configureCell(station: Station, stationDetail: StationDetail) {
+        self.trainTypeLbl.text = stationDetail.trainType!
+        self.originLbl.text = stationDetail.origin!
+        self.destinationLbl.text = stationDetail.destination!
+        self.scheduledDepartureLbl.text = stationDetail.scheduledDepartTime!
+        self.scheduledArrivalLbl.text = stationDetail.scheduledArrivalTime!
+        self.expectedDepartureLbl.text = stationDetail.expectedDepartureTime!
+        self.directionLbl.text = stationDetail.direction!
+        self.statusLbl.text = stationDetail.status!
         
         self.addStationAnnotaionWithCoordinates(CLLocationCoordinate2D(latitude: CLLocationDegrees(exactly: station.stationLatitude)!,
                                                                        longitude: CLLocationDegrees(exactly: station.stationLongitude)!))

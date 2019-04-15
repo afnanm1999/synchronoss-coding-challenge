@@ -12,40 +12,45 @@ import UIKit
 class StationsDetailViewModel {
     
     // MARK: - Properties
-    var stationsItems: [Station]
+    var station: Station?
+    var stationsDetailItems: [StationDetail]
     
     // MARK: - Initializer
     init() {
-        stationsItems = [Station]()
+        station = nil
+        stationsDetailItems = [StationDetail]()
     }
     
     // MARK: - Public Functions
     func fetchData(success: @escaping SuccessHandler, failure: @escaping FailureHandler) {
+        guard let station = self.station else {return}
+        
         DispatchQueue.global(qos: .background).async {
-//            BackendAPI.shared.fetchAllStations(success: { (response) in
-//                let xml = SWXMLHash.parse(response as? String ?? "")
-//                self.stationsItems.removeAll()
-//
-//                do {
-//                    let stationsItemsArr: [Station] = try xml["ArrayOfObjStation"]["objStation"].value()
-//
-//                    // Only get Dalkey & Rathdrum
-//                    stationsItemsArr.forEach({ (station) in
-//                        if station.stationDesc == "Dalkey" || station.stationDesc == "Rathdrum" {
-//                            self.stationsItems.append(station)
-//                        }
-//                    })
-//                } catch let error {
-//                    print("Error Occured while trying to parse XML: \(error.localizedDescription)")
-//                }
-//
-//                success(self.stationsItems as AnyObject)
-//            }) { (error) in
-//                if let error = error {
-//                    print(error.localizedDescription)
-//                    failure(error)
-//                }
-//            }
+            BackendAPI.shared.fetchStationFor(code: station.stationCode, success: { (response) in
+                let xml = SWXMLHash.parse(response as? String ?? "")
+                self.stationsDetailItems.removeAll()
+                
+                for xmlElement in xml["ArrayOfObjStationData"]["objStationData"].all {
+                    let stationData = StationDetail(stationFullName: xmlElement["Stationfullname"].element?.text,
+                                                    trainCode: xmlElement["Traincode"].element?.text,
+                                                    queryTime: xmlElement["Querytime"].element?.text,
+                                                    origin: xmlElement["Origin"].element?.text,
+                                                    destination: xmlElement["Destination"].element?.text,
+                                                    status: xmlElement["Status"].element?.text,
+                                                    scheduledDepartTime: xmlElement["Schdepart"].element?.text,
+                                                    scheduledArrivalTime: xmlElement["Scharrival"].element?.text,
+                                                    direction: xmlElement["Direction"].element?.text,
+                                                    trainType: xmlElement["Traintype"].element?.text,
+                                                    expectedDepartureTime: xmlElement["Expdepart"].element?.text)
+                    self.stationsDetailItems.append(stationData)
+                }
+                
+                success(self.stationsDetailItems as AnyObject)
+            }, failure: { (error) in
+                if let error = error {
+                    failure(error)
+                }
+            })
         }
     }
 }

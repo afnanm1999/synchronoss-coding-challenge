@@ -41,6 +41,21 @@ class BackendAPI {
     
     
     func fetchStationFor(code: String, success: @escaping SuccessHandler, failure: @escaping FailureHandler) {
+        var urlRequest = URLRequest(url: URL(string: "\(baseUrl)/getStationDataByCodeXML?StationCode=\(code)")!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 120)
+        urlRequest.httpMethod = "GET"
         
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                if let data = data {
+                    DispatchQueue.main.async {
+                        let string = String(data: data, encoding: .utf8)
+                        success(string as AnyObject)
+                    }
+                }
+            }
+        }
+        task.resume()
     }
 }

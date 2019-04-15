@@ -37,12 +37,11 @@ class StationsVC: UIViewController {
     }
     
     // MARK: - Functions
-    
-    func goToDetailsVC(stationCode: String) {
+    func goToDetailsVC(station: Station) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let navigationController = storyboard.instantiateViewController(withIdentifier: "detailsVC") as? UINavigationController {
             if let vc = navigationController.viewControllers.first as? StationsDetailsVC {
-                vc.stationCode = stationCode
+                vc.station = station
             } else {
                 self.showAlert(title: "Uh, Oh", message: "Something went wrong while trying to pass the Station Code to the Details View Controller. Please try again.")
             }
@@ -71,7 +70,7 @@ extension StationsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.goToDetailsVC(stationCode: viewModel.stationsItems[indexPath.row].stationCode)
+        self.goToDetailsVC(station: viewModel.stationsItems[indexPath.row])
     }
 }
 

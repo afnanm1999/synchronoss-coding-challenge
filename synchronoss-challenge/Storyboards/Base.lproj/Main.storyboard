@@ -56,28 +56,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1no-Bt-iwg">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="175" id="Fke-ww-81k">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="175"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fke-ww-81k" id="WDV-KP-VGZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fu-Sv-JMO">
-                                                    <rect key="frame" x="20" y="20" width="374" height="135"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="8Fu-Sv-JMO" firstAttribute="leading" secondItem="WDV-KP-VGZ" secondAttribute="leading" constant="20" id="2T4-Af-H4a"/>
-                                                <constraint firstAttribute="bottom" secondItem="8Fu-Sv-JMO" secondAttribute="bottom" constant="20" id="Fbb-2h-64C"/>
-                                                <constraint firstAttribute="trailing" secondItem="8Fu-Sv-JMO" secondAttribute="trailing" constant="20" id="aaN-vR-SEt"/>
-                                                <constraint firstItem="8Fu-Sv-JMO" firstAttribute="top" secondItem="WDV-KP-VGZ" secondAttribute="top" constant="20" id="xNT-Nb-eIf"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="8ho-jy-c7t"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SeU-sf-xMR"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
