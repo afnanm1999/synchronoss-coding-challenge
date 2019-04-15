@@ -21,6 +21,9 @@
 		CF9ECD002263FB0400114FE7 /* stationsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9ECCFE2263FB0400114FE7 /* stationsTVCell.swift */; };
 		CF9ECD012263FB0400114FE7 /* stationsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9ECCFF2263FB0400114FE7 /* stationsTVCell.xib */; };
 		CF9ECD042264094A00114FE7 /* StationsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9ECD032264094A00114FE7 /* StationsDetailsVC.swift */; };
+		CF9ECD0622641E2100114FE7 /* StationsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9ECD0522641E2100114FE7 /* StationsDetailsViewModel.swift */; };
+		CF9ECD09226421EB00114FE7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9ECD08226421EB00114FE7 /* Extensions.swift */; };
+		CF9ECD0B22642D0600114FE7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CF9ECD0A22642D0600114FE7 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		CF9ECCFE2263FB0400114FE7 /* stationsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stationsTVCell.swift; sourceTree = "<group>"; };
 		CF9ECCFF2263FB0400114FE7 /* stationsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = stationsTVCell.xib; sourceTree = "<group>"; };
 		CF9ECD032264094A00114FE7 /* StationsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsDetailsVC.swift; sourceTree = "<group>"; };
+		CF9ECD0522641E2100114FE7 /* StationsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsDetailsViewModel.swift; sourceTree = "<group>"; };
+		CF9ECD08226421EB00114FE7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CF9ECD0A22642D0600114FE7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		CF9ECCC62263CF4700114FE7 = {
 			isa = PBXGroup;
 			children = (
+				CF9ECD0A22642D0600114FE7 /* README.md */,
 				CF9ECCD12263CF4700114FE7 /* synchronoss-challenge */,
 				CF9ECCD02263CF4700114FE7 /* Products */,
 			);
@@ -73,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				CF9ECCD22263CF4700114FE7 /* AppDelegate.swift */,
+				CF9ECD07226421E000114FE7 /* Extensions */,
 				CF9ECCF12263ECE200114FE7 /* Models */,
 				CF9ECCEE2263E01800114FE7 /* API */,
 				CF9ECCEA2263DE8E00114FE7 /* Frameworks */,
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				CF9ECCFB2263EF6200114FE7 /* StationsViewModel.swift */,
+				CF9ECD0522641E2100114FE7 /* StationsDetailsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -179,6 +188,14 @@
 			path = "Stations Cell";
 			sourceTree = "<group>";
 		};
+		CF9ECD07226421E000114FE7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF9ECD08226421EB00114FE7 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,6 +256,7 @@
 			files = (
 				CF9ECCDD2263CF4700114FE7 /* LaunchScreen.storyboard in Resources */,
 				CF9ECCDA2263CF4700114FE7 /* Assets.xcassets in Resources */,
+				CF9ECD0B22642D0600114FE7 /* README.md in Resources */,
 				CF9ECD012263FB0400114FE7 /* stationsTVCell.xib in Resources */,
 				CF9ECCD82263CF4700114FE7 /* Main.storyboard in Resources */,
 			);
@@ -251,12 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF9ECD0622641E2100114FE7 /* StationsDetailsViewModel.swift in Sources */,
 				CF9ECCD52263CF4700114FE7 /* StationsVC.swift in Sources */,
 				CF9ECCF72263ED8B00114FE7 /* SWXMLHash.swift in Sources */,
 				CF9ECD002263FB0400114FE7 /* stationsTVCell.swift in Sources */,
 				CF9ECCF32263ECEB00114FE7 /* Station.swift in Sources */,
 				CF9ECCFC2263EF6200114FE7 /* StationsViewModel.swift in Sources */,
 				CF9ECCF92263ED9900114FE7 /* shim.swift in Sources */,
+				CF9ECD09226421EB00114FE7 /* Extensions.swift in Sources */,
 				CF9ECD042264094A00114FE7 /* StationsDetailsVC.swift in Sources */,
 				CF9ECCF02263E05300114FE7 /* BackendAPI.swift in Sources */,
 				CF9ECCF62263ED8B00114FE7 /* XMLIndexer+XMLIndexerDeserializable.swift in Sources */,

@@ -10,16 +10,20 @@ import UIKit
 
 class StationsDetailsVC: UIViewController {
     
+    // MARK: - Properties
     @IBOutlet var backBtn: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
     
+    var stationCode: String = ""
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    // MARK: - IBActions
     @IBAction func backAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
 }

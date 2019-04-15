@@ -31,8 +31,25 @@ class StationsVC: UIViewController {
             self.tableView.reloadData()
         }) { (error) in
             if let error = error {
-                print("Error Occured: \(error.localizedDescription)")
+                self.showAlert(title: "Uh, Oh", message: error.localizedDescription)
             }
+        }
+    }
+    
+    // MARK: - Functions
+    
+    func goToDetailsVC(stationCode: String) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let navigationController = storyboard.instantiateViewController(withIdentifier: "detailsVC") as? UINavigationController {
+            if let vc = navigationController.viewControllers.first as? StationsDetailsVC {
+                vc.stationCode = stationCode
+            } else {
+                self.showAlert(title: "Uh, Oh", message: "Something went wrong while trying to pass the Station Code to the Details View Controller. Please try again.")
+            }
+            
+            self.present(navigationController, animated: true, completion: nil)
+        } else {
+            self.showAlert(title: "Uh, Oh", message: "Something went wrong while trying to instantiate the Detail View Controller. Please try again.")
         }
     }
 }
@@ -54,10 +71,7 @@ extension StationsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationController = storyboard.instantiateViewController(withIdentifier: "detailsVC") as? UINavigationController
-        let vc = navigationController?.viewControllers.first as? StationsDetailsVC
-        self.present(navigationController!, animated: true, completion: nil)
+        self.goToDetailsVC(stationCode: viewModel.stationsItems[indexPath.row].stationCode)
     }
 }
 

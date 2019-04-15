@@ -35,18 +35,16 @@ class StationsViewModel {
                             self.stationsItems.append(station)
                         }
                     })
+                    
+                    success(self.stationsItems as AnyObject)
                 } catch let error {
-                    print("Error Occured while trying to parse XML: \(error.localizedDescription)")
+                    failure(error)
                 }
-                
-                success(self.stationsItems as AnyObject)
             }) { (error) in
                 if let error = error {
-                    print(error.localizedDescription)
                     failure(error)
                 }
             }
         }
     }
-    
 }
