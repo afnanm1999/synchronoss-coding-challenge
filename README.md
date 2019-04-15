@@ -8,8 +8,19 @@
 
 ### Features
 
-Will be added later
-
+- Created a Custom Launch Screen Logo for the application.
+- Card View with Shadows
+- In the Details View Added These Details:
+    - Train Arrival Time
+    - Train Departure Time
+    - Train Expected Departure
+    - Train Origin
+    - Train Type
+    - Train Directions
+    - Train Status
+    - Train Destination
+    - MapView with Stations Location pinpointed
+  
 ### How to Use the app
 
 In order to test the app, project files need to be opened in Xcode 10.2<br/>
