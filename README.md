@@ -4,7 +4,7 @@
 
 ### Screenshots
 
-Will Be added later
+<img src="https://raw.githubusercontent.com/afnanm1999/synchronoss-coding-challenge/master/Screenshots/img1.png" width="250"> <img src="https://raw.githubusercontent.com/afnanm1999/synchronoss-coding-challenge/master/Screenshots/img2.png" width="250"> <img src="https://raw.githubusercontent.com/afnanm1999/synchronoss-coding-challenge/master/Screenshots/Simulator%20Screen%20Shot%20-%20iPhone%20Xs%20-%202019-04-15%20at%2000.58.04.png" width="250">
 
 ### Features
 
