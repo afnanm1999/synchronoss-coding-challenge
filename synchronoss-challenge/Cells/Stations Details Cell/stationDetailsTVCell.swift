@@ -29,15 +29,20 @@ class stationDetailsTVCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setupCardViewShadows(shadowColor: UIColor.generateRandomColor())
+        setupCardViewShadows(color: UIColor.generateRandomColor())
     }
     
     // MARK: - Functions
-    func setupCardViewShadows(shadowColor: UIColor){
+    
+    /// This will set shadows to the `cardView`.
+    ///
+    /// - Parameter color: The UIColor that you want the shadow and the background to be.
+    ///
+    func setupCardViewShadows(color: UIColor){
         let view = cardView
-        view?.backgroundColor = shadowColor
+        view?.backgroundColor = color
         view?.layer.cornerRadius = 10.0
-        view?.layer.shadowColor = shadowColor.cgColor
+        view?.layer.shadowColor = color.cgColor
         view?.layer.shadowOffset = CGSize(width: 0, height: 2)
         view?.layer.shadowOpacity = 0.8
         view?.layer.shadowRadius = 3
@@ -46,6 +51,10 @@ class stationDetailsTVCell: UITableViewCell {
         self.mapView.layer.cornerRadius = 10
     }
     
+    /// This function is used to configure the cell UI Elements.
+    ///
+    /// - Parameter station: The Station Model which will be used to configure this cells `MKMapView`.
+    /// - Parameter stationDetails: The StationDetails Model which will be used to configure the UI Elements of this cell.
     func configureCell(station: Station, stationDetail: StationDetail) {
         self.trainTypeLbl.text = stationDetail.trainType!
         self.originLbl.text = stationDetail.origin!
@@ -60,9 +69,13 @@ class stationDetailsTVCell: UITableViewCell {
                                                                        longitude: CLLocationDegrees(exactly: station.stationLongitude)!))
     }
     
-    func addStationAnnotaionWithCoordinates(_ hsCoordinates: CLLocationCoordinate2D){
+    /// This will add an annotation to `MKMapView`.
+    ///
+    /// - Parameter stationCoordinates: The Coordinates for where you want to place the Annotation.
+    ///
+    func addStationAnnotaionWithCoordinates(_ stationCoordinates: CLLocationCoordinate2D){
         let stationAnnotation = MKPointAnnotation()
-        stationAnnotation.coordinate = hsCoordinates
+        stationAnnotation.coordinate = stationCoordinates
         self.mapView.addAnnotation(stationAnnotation)
         
         let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)

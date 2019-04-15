@@ -37,11 +37,15 @@ class StationsVC: UIViewController {
     }
     
     // MARK: - Functions
+    /// This function will present the Details View Controller.
+    ///
+    /// - Parameter station: The Station Model to pass to the Details View Controller's View Model.
+    ///
     func goToDetailsVC(station: Station) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let navigationController = storyboard.instantiateViewController(withIdentifier: "detailsVC") as? UINavigationController {
             if let vc = navigationController.viewControllers.first as? StationsDetailsVC {
-                vc.station = station
+                vc.viewModel.station = station
             } else {
                 self.showAlert(title: "Uh, Oh", message: "Something went wrong while trying to pass the Station Code to the Details View Controller. Please try again.")
             }

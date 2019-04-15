@@ -14,16 +14,12 @@ class StationsDetailsVC: UIViewController {
     @IBOutlet var backBtn: UIBarButtonItem!
     @IBOutlet var tableView: UITableView!
     
-    var station: Station?
-    
     let cellIdentifier = "detailCell"
     let viewModel: StationsDetailViewModel  = StationsDetailViewModel()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.station = station
-        
         self.title = viewModel.station?.stationDesc
         
         let stationsDetailCellNib = UINib(nibName: "stationDetailsTVCell", bundle: nil)

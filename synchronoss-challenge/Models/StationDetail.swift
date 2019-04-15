@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StationDetail: NSObject {
+struct StationDetail: XMLIndexerDeserializable {
     
     var stationFullName: String?
     var trainCode: String?
@@ -22,29 +22,18 @@ class StationDetail: NSObject {
     var trainType: String?
     var expectedDepartureTime: String?
     
-    init(stationFullName: String?,
-         trainCode: String?,
-         queryTime: String?,
-         origin: String?,
-         destination: String?,
-         status: String?,
-         scheduledDepartTime: String?,
-         scheduledArrivalTime: String?,
-         direction: String?,
-         trainType: String?,
-         expectedDepartureTime: String?) {
-        
-        self.stationFullName = stationFullName
-        self.trainCode = trainCode
-        self.queryTime = queryTime
-        self.origin = origin
-        self.destination = destination
-        self.status = status
-        self.scheduledDepartTime = scheduledDepartTime
-        self.scheduledArrivalTime = scheduledArrivalTime
-        self.direction = direction
-        self.trainType = trainType
-        self.expectedDepartureTime = expectedDepartureTime
+    static func deserialize(_ node: XMLIndexer) throws -> StationDetail {
+        return try StationDetail(stationFullName: node["Stationfullname"].value(),
+                                 trainCode: node["Traincode"].value(),
+                                 queryTime: node["Querytime"].value(),
+                                 origin: node["Origin"].value(),
+                                 destination: node["Destination"].value(),
+                                 status: node["Status"].value(),
+                                 scheduledDepartTime: node["Schdepart"].value(),
+                                 scheduledArrivalTime: node["Scharrival"].value(),
+                                 direction: node["Direction"].value(),
+                                 trainType: node["Traintype"].value(),
+                                 expectedDepartureTime: node["Expdepart"].value())
     }
     
 }

@@ -20,6 +20,12 @@ class StationsViewModel {
     }
     
     // MARK: - Public Functions
+    
+    /// This function will fetch the XML from the API and then append to `stationsItems` Station Model array.
+    ///
+    /// - Parameter success: The Success handler will be called if the request completed successfully. This handler will also return `AnyObject` value which can be used to parse XML.
+    /// - Parameter failure: The Failure handler will be called if the request has failed. This handler will also return `Error` which can be used to see the reason for failure.
+    ///
     func fetchData(success: @escaping SuccessHandler, failure: @escaping FailureHandler) {
         DispatchQueue.global(qos: .background).async {
             BackendAPI.shared.fetchAllStations(success: { (response) in

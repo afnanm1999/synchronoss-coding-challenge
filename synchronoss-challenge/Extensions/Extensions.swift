@@ -12,6 +12,11 @@ import UIKit
 typealias UIAlertActionHandler = () -> Void?
 
 extension UIViewController {
+    /// This function will show a UIAlertController with the specified title, message, and style.
+    ///
+    /// - Parameter title: The title for the alert.
+    /// - Parameter message: The message you want to show
+    /// - Parameter style: The Style of the UIAlertController.
     func showAlert(title: String, message: String, style: UIAlertController.Style = .alert, actionHandler: UIAlertActionHandler? = {}) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         
@@ -26,6 +31,7 @@ extension UIViewController {
 }
 
 extension UIColor {
+    // These convenience initializers are helpers of `generateRandomColor()` Function
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")

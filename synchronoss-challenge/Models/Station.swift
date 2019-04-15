@@ -15,17 +15,13 @@ struct Station: XMLIndexerDeserializable {
     let stationLatitude: Double
     let stationLongitude: Double
     let stationCode: String
-    let stationDistance: String
     
     static func deserialize(_ node: XMLIndexer) throws -> Station {
-        return try Station(
-            stationId: node["StationId"].value(),
-            stationDesc: node["StationDesc"].value(),
-            stationAlias: node["StationAlias"].value(),
-            stationLatitude: node["StationLatitude"].value(),
-            stationLongitude: node["StationLongitude"].value(),
-            stationCode: node["StationCode"].value(),
-            stationDistance: ""
-        )
+        return try Station(stationId: node["StationId"].value(),
+                           stationDesc: node["StationDesc"].value(),
+                           stationAlias: node["StationAlias"].value(),
+                           stationLatitude: node["StationLatitude"].value(),
+                           stationLongitude: node["StationLongitude"].value(),
+                           stationCode: node["StationCode"].value())
     }
 }

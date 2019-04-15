@@ -22,30 +22,32 @@ class StationsDetailViewModel {
     }
     
     // MARK: - Public Functions
+    
+    /// This function will fetch the XML from the API and then append to `stationsDetailItems` StationDetails Model array.
+    ///
+    /// - Parameter success: The Success handler will be called if the request completed successfully. This handler will also return `AnyObject` value which can be used to parse XML.
+    /// - Parameter failure: The Failure handler will be called if the request has failed. This handler will also return `Error` which can be used to see the reason for failure.
+    ///
     func fetchData(success: @escaping SuccessHandler, failure: @escaping FailureHandler) {
-        guard let station = self.station else {return}
+        guard let station = self.station else {
+            let error = NSError(domain: "stationVariableNotSet",
+                                code: 1023,
+                                userInfo: [NSLocalizedDescriptionKey: "The Station Value cannot be nil. Please check the code and try again."])
+            failure(error)
+            return
+        }
         
         DispatchQueue.global(qos: .background).async {
             BackendAPI.shared.fetchStationFor(code: station.stationCode, success: { (response) in
                 let xml = SWXMLHash.parse(response as? String ?? "")
                 self.stationsDetailItems.removeAll()
                 
-                for xmlElement in xml["ArrayOfObjStationData"]["objStationData"].all {
-                    let stationData = StationDetail(stationFullName: xmlElement["Stationfullname"].element?.text,
-                                                    trainCode: xmlElement["Traincode"].element?.text,
-                                                    queryTime: xmlElement["Querytime"].element?.text,
-                                                    origin: xmlElement["Origin"].element?.text,
-                                                    destination: xmlElement["Destination"].element?.text,
-                                                    status: xmlElement["Status"].element?.text,
-                                                    scheduledDepartTime: xmlElement["Schdepart"].element?.text,
-                                                    scheduledArrivalTime: xmlElement["Scharrival"].element?.text,
-                                                    direction: xmlElement["Direction"].element?.text,
-                                                    trainType: xmlElement["Traintype"].element?.text,
-                                                    expectedDepartureTime: xmlElement["Expdepart"].element?.text)
-                    self.stationsDetailItems.append(stationData)
+                do {
+                    self.stationsDetailItems = try xml["ArrayOfObjStationData"]["objStationData"].value()
+                    success(self.stationsDetailItems as AnyObject)
+                } catch let error {
+                    failure(error)
                 }
-                
-                success(self.stationsDetailItems as AnyObject)
             }, failure: { (error) in
                 if let error = error {
                     failure(error)
